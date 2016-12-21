@@ -18,6 +18,10 @@
 
 ###optional arguments:
 
+`-c CONNECTIONS, --connections CONNECTIONS`
+
+* Number of Connections to be opened. Default: 60
+
 `-h, --help`
 
 * show this help message and exit

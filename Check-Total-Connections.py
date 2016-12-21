@@ -113,7 +113,7 @@ def create_arg_parser():
     parser.add_argument("server", type=str, help="IP of server to test")
     parser.add_argument("port", type=int, help="PORT of server to test")
 
-#    parser.add_argument("-c", "--connections", type=int, dest="NumberConnections", default=60, help="Number of Connections to be opened")
+    parser.add_argument("-c", "--connections", type=int, dest="Connections", default=60, help="Number of Connections to be opened. Default: 60")
 
 #    parser.add_argument("-t", "--latitude", type="float", dest="lat", default=50.09, help="Your latitude.  Default: %default")
 #    parser.add_argument("-g", "--longitude", type="float", dest="lon", default=8.66, help="Your longitude.  Default: %default")
@@ -152,12 +152,11 @@ def process_arguments ():
     PROGRESS=options.progress
     MIN_DATA=options.Data
     
-    NUM_Sockets=options.NumberConnections
+    NUM_Sockets=options.Connections
     WAIT=options.Time
     PROGRESS=options.progress
     IP=options.server
     PORT=options.port
-    NUM_Sockets=options.NumberConnections
 
     if options.tell:
         print "Server: " + IP
@@ -204,6 +203,7 @@ if VERBOSE>=1:
   print >>sys.stderr,"Reading data completed"
 Enough_Data=check_results(NUM_Sockets,sock,Total_Bytes,DETAIL)  
 
+print "Test: %s:%i" % (IP, PORT)
 print "Connected %s" % Connected
 print "Enough Data %s" % Enough_Data
 print "Failed to connect: %s" % Failed_To_Connect
